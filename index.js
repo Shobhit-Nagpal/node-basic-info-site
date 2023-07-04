@@ -12,7 +12,7 @@ http.createServer((req,res) => {
 
                     res.writeHead(200, {'Content-Type' : 'text/html'});
                     res.write(data);
-                    res.end('');
+                    return res.end();
                     });
 
                     break;
@@ -22,7 +22,7 @@ http.createServer((req,res) => {
     
                             res.writeHead(200, {'Content-Type' : 'text/html'});
                             res.write(data);
-                            res.end('');
+                            return res.end();
                         });
     
                         break;
@@ -32,7 +32,7 @@ http.createServer((req,res) => {
             
                             res.writeHead(200, {'Content-Type' : 'text/html'});
                             res.write(data);
-                            res.end('');
+                            return res.end();
                         });
         
                         break;
@@ -42,7 +42,7 @@ http.createServer((req,res) => {
 
                     res.writeHead(200, {'Content-Type' : 'text/html'});
                     res.write(data);
-                    res.end('');
+                    return res.end();
                  });
 
                  break;
