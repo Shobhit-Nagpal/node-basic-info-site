@@ -1,10 +1,34 @@
-const http = require('http');
-const fs = require('fs');
+//const http = require('http');
+//const fs = require('fs');
+const express = require("express");
+const app = express();
 
 const port = 3000;
-const host = 'localhost'
 
-http.createServer((req,res) => {
+app.set('view engine', 'ejs');
+
+
+app.get('/', (req, res) => {
+    res.render('index', {text: "Index"});
+});
+
+app.get('/about', (req, res) => {
+    res.render('about', {text: "About"});
+});
+
+app.get('/contact', (req, res) => {
+    res.render('contact-me', {text: "Contact me"});
+});
+
+app.get('/*', (req, res) => {
+    res.render('404', {text: "404"});
+});
+
+app.listen(port, () => {
+    console.log("Server is up!");
+});
+
+/* http.createServer((req,res) => {
 
     switch (req.url) {
         case '/': fs.readFile('index.html', (err, data) => {
@@ -49,4 +73,4 @@ http.createServer((req,res) => {
     }
 }).listen(port, () => {
     console.log("Server is up!");
-});
+}); */
